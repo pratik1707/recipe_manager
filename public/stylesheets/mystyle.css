@@ -1,0 +1,58 @@
+#dashboard1{
+	width:94%; !important
+}
+.left_container_dashboard1{
+	width:40% ;float:left;
+}
+.recipe_text{
+	font-family:'Brush Script MT' ; text-decoration:underline; font-size:36px !important;
+}
+.recipe_name_published{
+	font-style=bold;font-family:Rockwell;font-size:27px;color:green;
+	}
+	.recipe_name{
+		font-style=bold;font-family:Rockwell;font-size:25px;
+	}
+	.ingredient_name{
+		font-family:Brush Script MT ;font-size:26px !important;
+	}
+	.right_container_dashboard1{
+		width: 50%; float: right; padding: 2% 5% 2% 2%;
+	}.steps_to_prepare{
+		font-family:Brush Script MT ;font-size:24px !important;
+	}.recipes_published{
+		font-family:Arial ; text-decoration:underline; font-size:32px !important;
+	}
+	.dashboard2{
+		float:left; margin:20px 60px
+	}
+#logincontainer{
+	width:94%; !important
+}
+.left_container_user{
+	width:60% ;float:left;
+}.latest_recipes{
+	color:blue;font-family:'Brush Script MT' ;font-size:40px !important;
+}.recipe_name_user{
+	font-style=bold;font-family:Rockwell;font-size:18px;margin:10px
+}
+.right_container_user{
+	width: 31%; float: right; padding: 2% 5% 2% 2%
+}
+.add_new_user_here{
+	font-family:'Rockwell' ; text-decoration:underline;color:blue; font-size:30px !important;
+}
+#containeradmin{
+	width:94%; !important
+}
+.left_container_admin{
+	width:55% ;float:left;
+}
+.users_and_recipes{
+	text-decoration:underline;color:blue;font-style=bold;font-family:Rockwell;font-size:34px;
+}
+.user_fullname{
+	color:#008B8B;font-style=bold;font-family:Brush Script MT;font-size:28px;
+}.recipe_name_main{
+	font-style=bold;font-family:Rockwell;font-size:18px;
+}.clear{clear:both;height:5px}

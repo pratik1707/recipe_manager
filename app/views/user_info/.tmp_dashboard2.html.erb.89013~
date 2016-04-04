@@ -1,0 +1,116 @@
+<div class="container" data-ng-controller="recipePublishController">
+    <br>
+    <%if @recipes_info_publish.length>=1 %>
+    <span align="left" style="font-family:'Arial' ; text-decoration:underline; font-size:32px !important;"><strong>Recipes To Be Published</strong></span>
+    <br>
+    <%@recipes_info_publish.each_with_index do |recipe,i| %>
+    <br>
+    <span style="font-style=bold;font-family:Rockwell;font-size:25px;"><%=recipe.recipe_name %></span>
+    &nbsp; &nbsp; <a style="cursor:pointer;" id="showeditdetails<%=i%>" onclick="showEditDetails(<%=i%>)">Edit Details</a>
+    <!--<div ng-show="showHideFlag">-->
+    <br>
+    <div style="display:none;" id="details_tobe_publish<%=i%>">
+        <%if recipe.ingredient1!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient1<%=i%>"  value="<%=recipe.ingredient1.split('|')[0] %>"  />
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity1<%=i%>" value="<%=recipe.ingredient1.split('|')[1] %>"/>
+            </div>
+        </div><br><%end %>
+        
+        <%if recipe.ingredient2!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient2<%=i%>" value="<%=recipe.ingredient2.split('|')[0] %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity2<%=i%>" value="<%=recipe.ingredient2.split('|')[1] %>"/>
+            </div>
+        </div><br><%end %>
+        
+        <%if recipe.ingredient3!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient3<%=i%>" value="<%=recipe.ingredient3.split('|')[0] %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity3<%=i%>" value="<%=recipe.ingredient3.split('|')[1] %>"/>
+            </div>
+        </div> <br><%end %>
+       
+        <%if recipe.ingredient4!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient4<%=i%>" value="<%=recipe.ingredient4.split('|')[0] %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity4<%=i%>" value="<%=recipe.ingredient4.split('|')[1] %>"/>
+            </div>
+        </div> <br><%end %>
+       
+        <%if recipe.ingredient5!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient5<%=i%>" value="<%=recipe.ingredient5.split('|')[0] %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity5<%=i%>" value="<%=recipe.ingredient5.split('|')[1] %>"/>
+            </div>
+        </div><br><%end %>
+        
+        <%if recipe.ingredient6!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient6<%=i%>" value="<%=recipe.ingredient6.split('|')[0] %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity6<%=i%>" value="<%=recipe.ingredient6.split('|')[1] %>"/>
+            </div>
+        </div> <br><%end %>
+       
+        <%if recipe.ingredient7!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient7<%=i%>" value="<%=recipe.ingredient7.split('|')[0] %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity7<%=i%>" value="<%=recipe.ingredient7.split('|')[1] %>"/>
+            </div>
+        </div><%end %>
+		<span>Steps to Prepare<br/><textarea id="steps<%=i%>" placeholder="Steps to Prepare">Steps to Prepare</textarea></span><br>
+		 <button id="submitCustomer" class="btn btn-primary" type="button" onclick="updatePublishRecipe(<%=i%>,<%=recipe.id%>,<%=@moderator_id%>)">
+            Update Recipe
+        </button>
+    </div><!-- </div>-->
+    <%end %><%end %>
+</div>

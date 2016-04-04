@@ -1,0 +1,129 @@
+<div id="dashboard2" class="container">
+    <br>
+    <br>
+    <%if @recipes_info_publish.length>=1 %>
+    <span class="recipes_published"align="left" style=""><strong>Recipes To Be Published</strong></span>
+    <br>
+    <%@recipes_info_publish.each_with_index do |recipe,i| %>
+    <br>
+    <span class="recipe_name_published"><%=recipe.recipe_name %></span>
+    &nbsp; &nbsp; <a style="cursor:pointer;" id="showeditdetails<%=i%>" onclick="showEditDetails(<%=i%>)">Edit Details</a>
+    <!--<div ng-show="showHideFlag">-->
+    <br>
+    <div style="display:none;" id="details_tobe_publish<%=i%>">
+        <%if recipe.ingredient1!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient1<%=i%>" value="<%=get_ingredient(recipe.ingredient1) %>" />
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity1<%=i%>" value="<%=get_quantity(recipe.ingredient1) %>"/>
+            </div>
+        </div>
+        <br>
+        <%end %>
+        <%if recipe.ingredient2!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient2<%=i%>" value="<%=get_ingredient(recipe.ingredient2) %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity2<%=i%>" value="<%=get_quantity(recipe.ingredient2) %>"/>
+            </div>
+        </div>
+        <br>
+        <%end %>
+        <%if recipe.ingredient3!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient3<%=i%>" value="<%=get_ingredient(recipe.ingredient3) %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity3<%=i%>" value="<%=get_quantity(recipe.ingredient3) %>"/>
+            </div>
+        </div>
+        <br>
+        <%end %>
+        <%if recipe.ingredient4!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient4<%=i%>" value="<%=get_ingredient(recipe.ingredient4) %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity4<%=i%>" value="<%=get_quantity(recipe.ingredient4) %>"/>
+            </div>
+        </div>
+        <br>
+        <%end %>
+        <%if recipe.ingredient5!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient5<%=i%>" value="<%=get_ingredient(recipe.ingredient5) %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity5<%=i%>" value="<%=get_quantity(recipe.ingredient5) %>"/>
+            </div>
+        </div>
+        <br>
+        <%end %>
+        <%if recipe.ingredient6!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient6<%=i%>" value="<%=get_ingredient(recipe.ingredient6) %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity6<%=i%>" value="<%=get_quantity(recipe.ingredient6)%>"/>
+            </div>
+        </div>
+        <br>
+        <%end %>
+        <%if recipe.ingredient7!=nil %>
+        <div class="row">
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text" id="ingredient7<%=i%>" value="<%=get_ingredient(recipe.ingredient7) %>"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" id="quantity7<%=i%>" value="<%=get_quantity(recipe.ingredient7) %>"/>
+            </div>
+        </div><%end %>
+        <span>Steps to Prepare
+            <br/>
+            <textarea id="steps<%=i%>" placeholder="Steps to Prepare"><%=recipe.steps%>
+            </textarea>
+        </span>
+        <br>
+        <button id="submitCustomer" class="btn btn-primary" type="button" onclick="updatePublishRecipe(<%=i%>,<%=recipe.id%>,<%=@moderator_id%>)">
+            Update Recipe
+        </button>
+    </div>
+    <!-- </div>-->
+    <%end %><%end %>
+</div>

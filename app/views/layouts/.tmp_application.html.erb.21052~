@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="recipeManager">
+<head>
+  <title>RecipeManager</title>
+
+    <%= javascript_include_tag 'angular.min.js' %>
+	<%= javascript_include_tag 'jquery.min.js' %>    
+	<%= javascript_include_tag 'recipe_data.js' %>
+   <%= javascript_include_tag 'controllers.js' %>
+  <%= stylesheet_link_tag :all %>
+ 
+   
+  <%= csrf_meta_tag %>
+</head>
+<body>
+   <br>
+        <br>
+       <%=render :partial=>'common_partials/header_section'%>
+	   
+        <%= yield %>
+       
+       
+        
+		</body>
+</html>

@@ -1,0 +1,93 @@
+<div id="dashboard1" class="container" data-ng-controller="recipeController" align="left">
+    <div class="left_container_dashboard1">
+        <br>
+        <%if @recipes_info.length>=1 %>
+        <br>
+        <span class="recipe_text" align="left"><strong>My Recipes</strong></span>
+        <br>
+        <%@recipes_info.each_with_index do |recipe,i| %>
+        <br>
+        <%if recipe.publish_status=="Published" %>
+        <span class="recipe_name_published"><%=recipe.recipe_name %></span>
+        <%else %>
+        <span class="recipe_name"><%=recipe.recipe_name %></span>
+        <%end %>
+        &nbsp; &nbsp; <a style="cursor:pointer;" id="showdetails<%=i%>" onclick="showHideDetails(<%=i%>)">Show Details</a>
+        <!--<div ng-show="showHideFlag">-->
+        <br>
+        <p style="display:none;" id="details<%=i%>">
+            <br>
+            <span class="ingredient_name">Ingredients</span>
+            <br>
+            <%if recipe.ingredient1!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient1) %>
+            ,<%end %>
+            <%if recipe.ingredient2!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient2) %>
+            ,<%end %>
+            <%if recipe.ingredient3!=nil && recipe.ingredient3!="" && recipe.ingredient3.length>0 %>
+            <%= get_recipe_and_quantity(recipe.ingredient3) %>
+            ,<%end %>
+            <%if recipe.ingredient4!=nil && recipe.ingredient4!="" && recipe.ingredient4.length>0 %>
+            <%= get_recipe_and_quantity(recipe.ingredient4) %>
+            ,<%end %>
+            <%if recipe.ingredient5!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient5) %>
+            ,<%end %>
+            <%if recipe.ingredient6!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient6) %>
+            ,<%end %>
+            <%if recipe.ingredient7!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient7) %>
+            <% end %><%if recipe.steps!=nil %>
+            <br>
+            <br>
+            <span class="steps_to_prepare">Steps to prepare</span>
+            <br>
+            <%=recipe.steps %><%end %>
+        </p>
+        <!-- </div>--><%end end %>
+        <br>
+    </div>
+    <div class="right_container_dashboard1">
+        <div>
+            <button id="addrecipe" class="btn btn-primary" type="button" ng-click="ShowHide()">
+                <span ng-bind="buttonText"></span>
+            </button>
+        </div>
+        <div ng-show="IsVisible">
+            <br>
+            <strong>Recipe Name:</strong>
+            &nbsp; <input type="text" ng-model="recipe_name" placeholder="Enter Recipe Name"/>
+            <br>
+            <div ng-repeat="item in items track by $index">
+                <div class="row" ng-if="$index<7">
+                    <div class="span3">
+                        Ingredient 
+                        <br/>
+                        <input type="text" placeholder="Add Ingredient" ng-model="item.ingredient"/>
+                    </div>
+                    <div class="span3" id="Quantity">
+                        Quantity 
+                        <br/>
+                        <input type="text" placeholder="Enter Quantity" ng-model="item.quantity" />
+                    </div>
+                </div>
+            </div>
+            <br>
+            <span ng-if="i>=1">Steps to Prepare
+                <br/>
+                <textarea data-ng-model="items.stepstoprepare" placeholder="Steps to Prepare">
+                    Steps to Prepare
+                </textarea>
+            </span>
+            <br>
+            <button class="btn btn-primary" data-ng-disabled="(!recipe_name)" ng-click="add()">
+                Add Recipe Details
+            </button>&nbsp; &nbsp;
+            <button ng-if="i>=1"id="submitCustomer" class="btn btn-primary" type="button" ng-click="addrecipe(<%=@id%>)">
+                Save Recipe
+            </button>
+        </div>
+    </div>
+</div>

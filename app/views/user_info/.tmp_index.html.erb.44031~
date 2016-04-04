@@ -1,0 +1,24 @@
+<div id="container" class="container" data-ng-controller="logincontroller">
+    <div>
+        <h3>Login</h3>
+        <span class="text_user">User Name :</span>
+        <input type="text" data-ng-model="username" placeholder="Enter Username"/>
+        <br>
+        <br>
+        <span class="text_password">&nbsp; Password : </span>
+        <input type="password" data-ng-model="pass" placeholder="Enter Password"/>
+        <br>
+        <br>
+        <span class="text_password">&nbsp; UserType : </span>
+        <select class="text_usertype" ng-model="usertype" placeholder="Select">
+            <option value="admin">Admin</option>
+            <option value="moderator">Moderator</option>
+            <option value="creator">Creator</option>
+        </select>
+        <br>
+        <br>
+        <button id="submitCustomer" class="btn btn-primary" type="button" ng-click="logincustomer()">
+            Login
+        </button>
+    </div>
+</div>

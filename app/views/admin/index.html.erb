@@ -1,0 +1,68 @@
+<div id="containeradmin" class="container" data-ng-controller="logincontroller" align="left">
+    <br><br>
+    <div class="left_container_admin">
+        <span class="users_and_recipes">Users and there Recipes</span>
+        <br>
+        <br>
+        <%@users.each_with_index do |user,i| %>
+        <% if user.usertype.eql?("creator") %>
+        <br>
+        <span class="user_fullname"><%=user.fullname.camelcase if user.fullname!=nil %></span>
+        <br>
+        <%puts user.fullname
+        user.recipes.each_with_index do |recipe,j| %>
+        <% if recipe.publish_status=="Published" || recipe.publish_status=="Display" %>
+        <br>
+        <div>
+            <span class="recipe_name_main"><%=recipe.recipe_name %></span>
+            &nbsp; &nbsp; <a style="cursor:pointer;" id="showUserRecipeDetails<%=i+1%><%=j%>" onclick="showUserRecipeDetails(<%=i+1%><%=j%>)">Show Recipe Details</a>
+            <p style="display:none;" id="userRecipeDetails<%=i+1%><%=j%>">
+			<br>
+                <span class="ingredient_name">Ingredients</span>
+                <br>
+               <%if recipe.ingredient1!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient1) %>
+            ,<%end %>
+            <%if recipe.ingredient2!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient2) %>
+            ,<%end %>
+            <%if recipe.ingredient3!=nil && recipe.ingredient3!="" && recipe.ingredient3.length>0 %>
+            <%= get_recipe_and_quantity(recipe.ingredient3) %>
+            ,<%end %>
+            <%if recipe.ingredient4!=nil && recipe.ingredient4!="" && recipe.ingredient4.length>0 %>
+            <%= get_recipe_and_quantity(recipe.ingredient4) %>
+            ,<%end %>
+            <%if recipe.ingredient5!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient5) %>
+            ,<%end %>
+            <%if recipe.ingredient6!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient6) %>
+            ,<%end %>
+            <%if recipe.ingredient7!=nil %>
+            <%= get_recipe_and_quantity(recipe.ingredient7) %>
+            <% end %><%if recipe.steps!=nil %>
+                <br>
+                <br>
+                <span class="steps_to_prepare">Steps to prepare</span>
+                <br>
+                <%=recipe.steps %><%end %>
+                &nbsp; &nbsp;<%if recipe.publish_status=="Published" %>
+                <button id="publishInMainPage<%=recipe.id%>"style="color:blue;" class="btn" onclick="publishInMainPage(<%=recipe.id%>)">
+                    Display in Main Page
+                </button>
+                <%elsif (recipe.publish_status=="Display") %>
+                <button disabled="disabled" style="color:green;" class="btn">
+                    Displayed
+                </button>
+                <%end %>
+            </p>
+        </div>
+        <%end end end %>
+        <%end %>
+    </div>
+    <div class="right-container" style="width: 38%; float: right; padding: 2% 5% 2% 2%;">
+        <a rel="facebox" href="/newuser">Add New User</a>
+        <div style="display:none" id="addNewUser">
+            yessssss
+        </div>
+    </div>

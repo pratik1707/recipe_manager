@@ -1,0 +1,1170 @@
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:34:56 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/userinfo/
+Completed 302 Found in 1ms
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 11:35:00 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 1869ms (Views: 40.0ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 11:35:25 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"pratik17", "password"=>"[FILTERED]", "usertype"=>"creator"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'pratik17' AND password = 'M@lanG17' AND usertype='creator') ORDER BY users.id DESC LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'pratik17' AND password = 'M@lanG17' AND usertype='creator')[0m
+Completed 200 OK in 91ms (Views: 4.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:35:25 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (user_id = '1')
+Rendered user_info/dashboard1.html.erb within layouts/application (76.1ms)
+Completed   in 116ms
+
+ActionView::Template::Error (undefined local variable or method `recipe' for #<#<Class:0x3ea2eb0>:0x3eacd08>):
+    19:             <span style="font-family:'Brush Script MT' ;font-size:26px !important;">Ingredients</span>
+    20:             <br>
+    21:             <%if recipe.ingredient1!=nil %>
+    22:             <%=get_recipe_and_quantity(recipe.ingredient1) %>
+    23:             ,<%end %>
+    24:             <%if recipe.ingredient2!=nil %>
+    25:             <%=recipe.ingredient2.split("|")[0] %>--<%=recipe.ingredient2.split("|")[1] %>
+  app/helpers/user_info_helper.rb:3:in `get_recipe_and_quantity'
+  app/views/user_info/dashboard1.html.erb:22:in `block in _app_views_user_info_dashboard__html_erb___808452113_32857872__748392820'
+  app/views/user_info/dashboard1.html.erb:8:in `_app_views_user_info_dashboard__html_erb___808452113_32857872__748392820'
+
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (54.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:37:18 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (6.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (user_id = '1')[0m
+Rendered user_info/dashboard1.html.erb within layouts/application (45.0ms)
+Completed   in 110ms
+
+ActionView::Template::Error (undefined local variable or method `recipe' for #<#<Class:0x24949b0>:0x2597ad8>):
+    19:             <span style="font-family:'Brush Script MT' ;font-size:26px !important;">Ingredients</span>
+    20:             <br>
+    21:             <%if recipe.ingredient1!=nil %>
+    22:             <%get_recipe_and_quantity(recipe.ingredient1) %>
+    23:             ,<%end %>
+    24:             <%if recipe.ingredient2!=nil %>
+    25:             <%=recipe.ingredient2.split("|")[0] %>--<%=recipe.ingredient2.split("|")[1] %>
+  app/helpers/user_info_helper.rb:3:in `get_recipe_and_quantity'
+  app/views/user_info/dashboard1.html.erb:22:in `block in _app_views_user_info_dashboard__html_erb___808452113_19738428__748392820'
+  app/views/user_info/dashboard1.html.erb:8:in `_app_views_user_info_dashboard__html_erb___808452113_19738428__748392820'
+
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (48.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:38:07 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (user_id = '1')
+Rendered user_info/dashboard1.html.erb within layouts/application (34.0ms)
+Completed   in 70ms
+
+ActionView::Template::Error (undefined local variable or method `recipe' for #<#<Class:0x3881310>:0x387f978>):
+    19:             <span style="font-family:'Brush Script MT' ;font-size:26px !important;">Ingredients</span>
+    20:             <br>
+    21:             <%if recipe.ingredient1!=nil %>
+    22:             <% get_recipe_and_quantity(recipe.ingredient1) %>
+    23:             ,<%end %>
+    24:             <%if recipe.ingredient2!=nil %>
+    25:             <%=recipe.ingredient2.split("|")[0] %>--<%=recipe.ingredient2.split("|")[1] %>
+  app/helpers/user_info_helper.rb:3:in `get_recipe_and_quantity'
+  app/views/user_info/dashboard1.html.erb:22:in `block in _app_views_user_info_dashboard__html_erb___808452113_26289768__748392820'
+  app/views/user_info/dashboard1.html.erb:8:in `_app_views_user_info_dashboard__html_erb___808452113_26289768__748392820'
+
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:39:38 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (5.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (user_id = '1')[0m
+Rendered user_info/dashboard1.html.erb within layouts/application (46.0ms)
+Completed   in 80ms
+
+ActionView::Template::Error (undefined local variable or method `recipe' for #<#<Class:0x387cb40>:0x387b658>):
+    19:             <span style="font-family:'Brush Script MT' ;font-size:26px !important;">Ingredients</span>
+    20:             <br>
+    21:             <%if recipe.ingredient1!=nil %>
+    22:             <%rec= get_recipe_and_quantity(recipe.ingredient1) %>
+    23:             ,<%end %>
+    24:             <%if recipe.ingredient2!=nil %>
+    25:             <%=recipe.ingredient2.split("|")[0] %>--<%=recipe.ingredient2.split("|")[1] %>
+  app/helpers/user_info_helper.rb:3:in `get_recipe_and_quantity'
+  app/views/user_info/dashboard1.html.erb:22:in `block in _app_views_user_info_dashboard__html_erb___808452113_29610972__748392820'
+  app/views/user_info/dashboard1.html.erb:8:in `_app_views_user_info_dashboard__html_erb___808452113_29610972__748392820'
+
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:40:26 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (user_id = '1')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard1.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 68ms (Views: 49.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:41:22 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (4.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (user_id = '1')[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard1.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 54ms (Views: 36.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:41:44 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (6.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (user_id = '1')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard1.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 87ms (Views: 58.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:49:32 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (user_id = '1')[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard1.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 62ms (Views: 45.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/userinfo/dashboard1/1" for 127.0.0.1 at 2016-04-04 11:50:05 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (user_id = '1')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard1.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 68ms (Views: 44.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/userinfo/dashboard2/4" for 127.0.0.1 at 2016-04-04 11:56:11 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 62ms (Views: 34.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard2/4" for 127.0.0.1 at 2016-04-04 11:56:55 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 62ms (Views: 42.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/userinfo/dashboard2/4" for 127.0.0.1 at 2016-04-04 11:57:43 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 62ms (Views: 42.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard2/4" for 127.0.0.1 at 2016-04-04 11:58:44 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 65ms (Views: 49.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard2/4" for 127.0.0.1 at 2016-04-04 11:59:18 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/userinfo/
+Completed 302 Found in 6ms
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 11:59:18 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[36mRecipe Load (5.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 94ms (Views: 55.0ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 11:59:59 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"moderator17", "password"=>"[FILTERED]", "usertype"=>"moderator"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'moderator17' AND password = 'moderator17' AND usertype='moderator') ORDER BY users.id DESC LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'moderator17' AND password = 'moderator17' AND usertype='moderator')
+Completed 200 OK in 29ms (Views: 3.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:00:00 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 66ms (Views: 48.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/userinfo/update_recipes" for 127.0.0.1 at 2016-04-04 12:00:39 +0530
+  Processing by UserInfoController#update_recipes as */*
+  Parameters: {"ingredient"=>["maggi", "Maggi powder", "Water"], "quantity"=>["1", "1", "1 cup"], "recipe_id"=>"20", "user_id"=>"8", "steps"=>" Testing only\n            "}
+  [1m[35mSQL (140.4ms)[0m  UPDATE "recipes" SET "ingredient1" = 'maggi|1', "ingredient2" = 'Maggi powder|1', "ingredient3" = 'Water|1 cup', "ingredient4" = NULL, "ingredient5" = NULL, "ingredient6" = NULL, "ingredient7" = NULL, "publish_status" = 'Published', "steps" = ' Testing only
+ ' WHERE (id = '20')
+Completed 200 OK in 172ms (Views: 6.0ms | ActiveRecord: 140.4ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:00:40 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 72ms (Views: 55.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:00:43 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 53ms (Views: 34.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/userinfo" for 127.0.0.1 at 2016-04-04 12:01:04 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/index.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 70ms (Views: 46.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:01:21 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"sumanthkrishna12", "password"=>"[FILTERED]", "usertype"=>"admin"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin') ORDER BY users.id DESC LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin')
+Completed 200 OK in 41ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:01:21 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (11.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (193.1ms)
+Completed 200 OK in 255ms (Views: 198.1ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:04:34 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (8.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (159.1ms)
+Completed 200 OK in 232ms (Views: 166.1ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/dashboard2/4" for 127.0.0.1 at 2016-04-04 12:05:07 +0530
+
+ActionController::RoutingError (No route matches "/dashboard2/4"):
+  
+
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/userinfo/dashboard2/4" for 127.0.0.1 at 2016-04-04 12:05:14 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/userinfo/
+Completed 302 Found in 1ms
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 12:05:14 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[36mRecipe Load (4.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 73ms (Views: 42.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:05:34 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"moderator17", "password"=>"[FILTERED]", "usertype"=>"moderator"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'moderator17' AND password = 'moderator17' AND usertype='moderator') ORDER BY users.id DESC LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'moderator17' AND password = 'moderator17' AND usertype='moderator')
+Completed 200 OK in 28ms (Views: 3.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:05:34 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 76ms (Views: 58.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:06:16 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 66ms (Views: 48.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:06:39 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 78ms (Views: 60.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 12:12:05 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 77ms (Views: 50.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:19:33 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"sumanthkrishna12", "password"=>"[FILTERED]", "usertype"=>"admin"}
+  [1m[36mUser Load (14.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin') ORDER BY users.id DESC LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin')[0m
+Completed 200 OK in 52ms (Views: 5.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:19:33 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (6.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (119.1ms)
+Completed 200 OK in 149ms (Views: 121.1ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:20:24 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (7.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)[0m
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (135.1ms)
+Completed 200 OK in 169ms (Views: 132.1ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:20:37 +0530
+  Processing by AdminController#newuser as */*
+Redirected to http://localhost:3000/userinfo/
+Completed 302 Found in 1ms
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 12:20:37 +0530
+  Processing by UserInfoController#index as */*
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 101ms (Views: 51.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:21:31 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (81.1ms)
+Completed 200 OK in 107ms (Views: 84.1ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:21:35 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/newuser.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 88ms (Views: 87.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:23:55 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (82.1ms)
+Completed 200 OK in 107ms (Views: 82.1ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:23:58 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/newuser.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 85ms (Views: 85.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:25:03 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (88.1ms)
+Completed 200 OK in 113ms (Views: 90.1ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:25:08 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/newuser.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 49ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:25:22 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 99ms (Views: 72.1ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:25:27 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/newuser.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:26:14 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (5.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (89.1ms)
+Completed 200 OK in 119ms (Views: 90.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:27:30 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (81.1ms)
+Completed 200 OK in 106ms (Views: 79.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:29:15 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (16.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (84.1ms)
+Completed 200 OK in 109ms (Views: 70.1ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:29:32 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (2.0ms)
+Rendered admin/newuser.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 43ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:29:53 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (80.1ms)
+Completed 200 OK in 106ms (Views: 81.1ms | ActiveRecord: 9.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUserDetails (20160331055456)
+Migrating to CreateUserinfos (20160401011852)
+Migrating to ChangeDataTypeForUsertype (20160401014215)
+Migrating to CreateUsers (20160401020319)
+Migrating to CreateRecipes (20160401080443)
+Migrating to ChangeUser (20160401081752)
+Migrating to CreateUserinformations (20160401083213)
+Migrating to RemoveColumns (20160402173200)
+Migrating to Removecol (20160402195410)
+Migrating to AddColumn (20160402202323)
+Migrating to Removecolu (20160402202726)
+Migrating to Addcol (20160403000832)
+Migrating to Addcolumn (20160403001307)
+Migrating to Addcolumnsteps (20160403080124)
+Migrating to Addcolumnfullname (20160403164836)
+Migrating to Removecolumnrecipeid (20160404054659)
+Migrating to Dropunusedtables (20160404054938)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("recipes")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:31:22 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (5.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (143.1ms)
+Completed 200 OK in 245ms (Views: 167.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:31:40 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/userinfo/
+Completed 302 Found in 14ms
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 12:31:40 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 63ms (Views: 35.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:32:07 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"sdsdcdc", "password"=>"[FILTERED]", "usertype"=>"admin"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'sdsdcdc' AND password = 'scddcdcd' AND usertype='admin') ORDER BY users.id DESC LIMIT 1
+Completed 200 OK in 34ms (Views: 15.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/userinfo" for 127.0.0.1 at 2016-04-04 12:32:48 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 83ms (Views: 34.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:33:33 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"sumanthkrishna12", "password"=>"[FILTERED]", "usertype"=>"admin"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin') ORDER BY users.id DESC LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin')
+Completed 200 OK in 40ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:33:33 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (92.1ms)
+Completed 200 OK in 127ms (Views: 92.1ms | ActiveRecord: 12.0ms)
+
+
+Started POST "/publishMain" for 127.0.0.1 at 2016-04-04 12:33:45 +0530
+  Processing by AdminController#publishMain as */*
+  Parameters: {"recipe_id"=>"20"}
+Redirected to http://localhost:3000/userinfo/
+Completed 302 Found in 0ms
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 12:33:45 +0530
+  Processing by UserInfoController#index as */*
+  [1m[36mRecipe Load (4.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 102ms (Views: 72.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:34:30 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 102ms (Views: 79.1ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/publishMain" for 127.0.0.1 at 2016-04-04 12:34:36 +0530
+  Processing by AdminController#publishMain as */*
+  Parameters: {"recipe_id"=>"20"}
+  [1m[35mSQL (106.4ms)[0m  UPDATE "recipes" SET "publish_status" = 'Display' WHERE ("recipes"."id" = 20)
+Completed 200 OK in 175ms (Views: 18.0ms | ActiveRecord: 106.4ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:34:42 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (17.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (79.1ms)
+Completed 200 OK in 103ms (Views: 66.1ms | ActiveRecord: 22.0ms)
+
+
+Started GET "/userinfo" for 127.0.0.1 at 2016-04-04 12:34:58 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[36mRecipe Load (4.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 91ms (Views: 66.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:35:12 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/newuser.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/save_user" for 127.0.0.1 at 2016-04-04 12:35:29 +0530
+  Processing by AdminController#save_user as */*
+  Parameters: {"fullname"=>"prats", "username"=>"prats17", "usertype"=>"creator", "password"=>"[FILTERED]"}
+  [1m[35mSQL (28.5ms)[0m  INSERT INTO "users" ("created_at", "fullname", "password", "updated_at", "username", "usertype") VALUES ('2016-04-04 07:05:29.415172', 'prats', 'prats17', '2016-04-04 07:05:29.415172', 'prats17', 'creator')
+Completed 200 OK in 223ms (Views: 30.0ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:36:27 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)[0m
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 11)[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (87.1ms)
+Completed 200 OK in 113ms (Views: 87.1ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:37:41 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (4.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 7)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 9)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 11)
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (81.1ms)
+Completed 200 OK in 105ms (Views: 79.0ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:37:43 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/newuser.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/save_user" for 127.0.0.1 at 2016-04-04 12:38:01 +0530
+  Processing by AdminController#save_user as */*
+  Parameters: {"fullname"=>"newModerator", "username"=>"newModerator", "usertype"=>"moderator", "password"=>"[FILTERED]"}
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "fullname", "password", "updated_at", "username", "usertype") VALUES ('2016-04-04 07:08:01.693558', 'newModerator', 'newModerator', '2016-04-04 07:08:01.693558', 'newModerator', 'moderator')[0m
+Completed 200 OK in 235ms (Views: 41.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:38:14 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/newuser.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/newuser" for 127.0.0.1 at 2016-04-04 12:38:14 +0530
+  Processing by AdminController#newuser as */*
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/newuser.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 42ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/save_user" for 127.0.0.1 at 2016-04-04 12:38:30 +0530
+  Processing by AdminController#save_user as */*
+  Parameters: {"fullname"=>"testPerson", "username"=>"testPerson", "usertype"=>"creator", "password"=>"[FILTERED]"}
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "fullname", "password", "updated_at", "username", "usertype") VALUES ('2016-04-04 07:08:30.273932', 'testPerson', 'testPerson', '2016-04-04 07:08:30.273932', 'testPerson', 'creator')
+Completed 200 OK in 283ms (Views: 33.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:40:25 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+Completed   in 18ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/admin_controller.rb:5:in `index'
+
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:41:20 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 11)[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "users" WHERE ("users"."id" = 11)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 13)[0m
+  [1m[35mSQL (2.0ms)[0m  DELETE FROM "users" WHERE ("users"."id" = 13)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 9)[0m
+  [1m[35mSQL (2.0ms)[0m  DELETE FROM "users" WHERE ("users"."id" = 9)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 7)[0m
+  [1m[35mSQL (2.0ms)[0m  DELETE FROM "users" WHERE ("users"."id" = 7)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (75.0ms)
+Completed 200 OK in 558ms (Views: 78.1ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:41:40 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (95.1ms)
+Completed 200 OK in 127ms (Views: 99.1ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:42:04 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"moderator17", "password"=>"[FILTERED]", "usertype"=>"moderator"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'moderator17' AND password = 'moderator17' AND usertype='moderator') ORDER BY users.id DESC LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'moderator17' AND password = 'moderator17' AND usertype='moderator')[0m
+Completed 200 OK in 41ms (Views: 3.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:42:04 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 57ms (Views: 40.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/userinfo/update_recipes" for 127.0.0.1 at 2016-04-04 12:42:29 +0530
+  Processing by UserInfoController#update_recipes as */*
+  Parameters: {"ingredient"=>["Rice", "Water", "Salt", "Turmeric", "chilly powder"], "quantity"=>["1 cup", "1 cup", "1 tbsp", "1/6 tbsp", "1/8 tbsp"], "recipe_id"=>"22", "user_id"=>"8", "steps"=>"            "}
+  [1m[36mSQL (99.1ms)[0m  [1mUPDATE "recipes" SET "ingredient1" = 'Rice|1 cup', "ingredient2" = 'Water|1 cup', "ingredient3" = 'Salt|1 tbsp', "ingredient4" = 'Turmeric|1/6 tbsp', "ingredient5" = 'chilly powder|1/8 tbsp', "ingredient6" = NULL, "ingredient7" = NULL, "publish_status" = 'Published', "steps" = ' ' WHERE (id = '22')[0m
+Completed 200 OK in 124ms (Views: 7.0ms | ActiveRecord: 99.1ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:42:29 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 52ms (Views: 38.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:42:32 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 47ms (Views: 32.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:44:16 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/userinfo/
+Completed 302 Found in 0ms
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 12:44:16 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 90ms (Views: 49.1ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:44:41 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"sumanthkrishna12", "password"=>"[FILTERED]", "usertype"=>"admin"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin') ORDER BY users.id DESC LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin')[0m
+Completed 200 OK in 28ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:44:41 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "fullname", "password", "updated_at", "username", "usertype") VALUES ('2016-04-04 07:14:41.547779', 'Rajan', 'rajan15', '2016-04-04 07:14:41.547779', 'rajan15', NULL)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (60.1ms)
+Completed 200 OK in 245ms (Views: 65.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:45:13 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "fullname", "password", "updated_at", "username", "usertype") VALUES ('2016-04-04 07:15:13.513965', 'Rajan', 'rajan15', '2016-04-04 07:15:13.513965', 'rajan15', NULL)[0m
+  [1m[35mUser Load (3.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (81.1ms)
+Completed 200 OK in 246ms (Views: 94.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/userinfo" for 127.0.0.1 at 2016-04-04 12:45:48 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 59ms (Views: 36.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:46:04 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"nikhil02", "password"=>"[FILTERED]", "usertype"=>"creator"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'nikhil02' AND password = 'nikhil02' AND usertype='creator') ORDER BY users.id DESC LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'nikhil02' AND password = 'nikhil02' AND usertype='creator')[0m
+Completed 200 OK in 29ms (Views: 4.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/userinfo/dashboard1/6" for 127.0.0.1 at 2016-04-04 12:46:04 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (user_id = '6')
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/dashboard1.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 68ms (Views: 35.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/userinfo/save_recipes" for 127.0.0.1 at 2016-04-04 12:46:22 +0530
+  Processing by UserInfoController#save_recipes as */*
+  Parameters: {"ingredient"=>["test"], "quantity"=>["test"], "user_id"=>"6", "recipe_name"=>"testrecipe", "steps"=>"test recipe"}
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "recipes" ("created_at", "ingredient1", "ingredient2", "ingredient3", "ingredient4", "ingredient5", "ingredient6", "ingredient7", "publish_status", "recipe_name", "steps", "updated_at", "user_id") VALUES ('2016-04-04 07:16:22.648093', 'test|test', NULL, NULL, NULL, NULL, NULL, NULL, 'No Published', 'testrecipe', 'test recipe', '2016-04-04 07:16:22.648093', '6')[0m
+Completed 200 OK in 172ms (Views: 10.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/userinfo/dashboard1/6" for 127.0.0.1 at 2016-04-04 12:46:22 +0530
+  Processing by UserInfoController#dashboard1 as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mRecipe Load (18.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (user_id = '6')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard1.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 82ms (Views: 48.0ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 12:46:34 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 68ms (Views: 32.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:46:59 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"moderator17", "password"=>"[FILTERED]", "usertype"=>"moderator"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'moderator17' AND password = 'moderator17' AND usertype='moderator') ORDER BY users.id DESC LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'moderator17' AND password = 'moderator17' AND usertype='moderator')
+Completed 200 OK in 28ms (Views: 4.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:46:59 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 55ms (Views: 35.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:48:18 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 50ms (Views: 34.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/userinfo/update_recipes" for 127.0.0.1 at 2016-04-04 12:48:32 +0530
+  Processing by UserInfoController#update_recipes as */*
+  Parameters: {"ingredient"=>["test"], "quantity"=>["test"], "recipe_id"=>"24", "user_id"=>"8", "steps"=>"testing\n            "}
+  [1m[36mSQL (115.4ms)[0m  [1mUPDATE "recipes" SET "ingredient1" = 'test|test', "ingredient2" = NULL, "ingredient3" = NULL, "ingredient4" = NULL, "ingredient5" = NULL, "ingredient6" = NULL, "ingredient7" = NULL, "publish_status" = 'Published', "steps" = 'testing
+ ' WHERE (id = '24')[0m
+Completed 200 OK in 138ms (Views: 8.0ms | ActiveRecord: 115.4ms)
+
+
+Started GET "/userinfo/dashboard2/8" for 127.0.0.1 at 2016-04-04 12:48:32 +0530
+  Processing by UserInfoController#dashboard2 as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE (publish_status = 'No Published')
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/dashboard2.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 49ms (Views: 33.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/userinfo/" for 127.0.0.1 at 2016-04-04 12:48:36 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered user_info/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 76ms (Views: 35.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:48:56 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"sumanthkrishna12", "password"=>"[FILTERED]", "usertype"=>"admin"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'scscdcdccd' AND usertype='admin') ORDER BY users.id DESC LIMIT 1[0m
+Completed 200 OK in 34ms (Views: 16.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/userinfo/login_test" for 127.0.0.1 at 2016-04-04 12:49:20 +0530
+  Processing by UserInfoController#login_test as */*
+  Parameters: {"username"=>"sumanthkrishna12", "password"=>"[FILTERED]", "usertype"=>"admin"}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin') ORDER BY users.id DESC LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE (username = 'sumanthkrishna12' AND password = 'Krishn@12' AND usertype='admin')
+Completed 200 OK in 27ms (Views: 3.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:49:20 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "fullname", "password", "updated_at", "username", "usertype") VALUES ('2016-04-04 07:19:20.690999', 'Rajan', 'rajan15', '2016-04-04 07:19:20.690999', 'rajan15', NULL)[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)[0m
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered admin/index.html.erb within layouts/application (59.0ms)
+Completed 200 OK in 236ms (Views: 61.0ms | ActiveRecord: 11.0ms)
+
+
+Started POST "/publishMain" for 127.0.0.1 at 2016-04-04 12:49:32 +0530
+  Processing by AdminController#publishMain as */*
+  Parameters: {"recipe_id"=>"24"}
+  [1m[35mSQL (984.3ms)[0m  UPDATE "recipes" SET "publish_status" = 'Display' WHERE ("recipes"."id" = 24)
+Completed 200 OK in 1040ms (Views: 28.0ms | ActiveRecord: 984.3ms)
+
+
+Started GET "/admin/3" for 127.0.0.1 at 2016-04-04 12:49:36 +0530
+  Processing by AdminController#index as HTML
+  Parameters: {"id"=>"3"}
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "fullname", "password", "updated_at", "username", "usertype") VALUES ('2016-04-04 07:19:36.113111', 'Rajan', 'rajan15', '2016-04-04 07:19:36.113111', 'rajan15', NULL)[0m
+  [1m[35mUser Load (3.0ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (4.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 1)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 2)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 5)[0m
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 6)
+  [1m[36mRecipe Load (2.0ms)[0m  [1mSELECT "recipes".* FROM "recipes" WHERE ("recipes".user_id = 10)[0m
+Rendered common_partials/_header_section.html.erb (0.0ms)
+Rendered admin/index.html.erb within layouts/application (107.1ms)
+Completed 200 OK in 405ms (Views: 114.1ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/userinfo" for 127.0.0.1 at 2016-04-04 12:49:47 +0530
+  Processing by UserInfoController#index as HTML
+  [1m[35mRecipe Load (4.0ms)[0m  SELECT "recipes".* FROM "recipes" WHERE ("recipes"."publish_status" = 'Display') ORDER BY updated_at DESC
+Rendered common_partials/_header_section.html.erb (1.0ms)
+Rendered user_info/index.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 69ms (Views: 46.0ms | ActiveRecord: 4.0ms)

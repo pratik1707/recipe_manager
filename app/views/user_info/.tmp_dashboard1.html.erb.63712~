@@ -1,0 +1,47 @@
+
+<div class="container" data-ng-controller="recipeController">
+	<% if @recipes!=nil && @recipes!="" && @recipes.length>0%>
+	 <h3>My Recipes List</h3>
+	 
+    <%=	@recipes.each do |recipe| %>
+	<ul><li>
+		
+	</li></ul>
+   <% end end%><br><br>
+   	<div><button id="addrecipe" class="btn btn-primary" type="button" ng-click="ShowHide()"><span ng-bind="buttonText"value="tttttt"></span></button>
+	</div>
+	<div ng-show="IsVisible">
+		<br><br>
+		<strong>Recipe Name:</strong> &nbsp; <input type="text" ng-model="recipe_name" placeholder="Enter recipe Name"/>
+		<br><br>
+ <div ng-repeat="item in items track by $index">
+ 	<div class="row" ng-if="$index<3">
+			
+            <div class="span3">
+                Ingredient 
+                <br/>
+                <input type="text"  placeholder="Add Ingredient" ng-model="item.ingredient"/>
+            </div>
+            <div class="span3" id="Quantity">
+                Quantity 
+                <br/>
+                <input type="text" placeholder="Enter Quantity" ng-model="item.quantity" />
+            </div>
+			<div class="span3" id="Measurement">
+                Measurement 
+                <br/>
+                <input type="text" placeholder="Enter Measurement" ng-model="item.measurement" />
+            </div>
+			<div class="span3" id="IngredientType">
+                IngredientType 
+                <br/>
+                <input type="text" placeholder="Ingredient Type" ng-model="iitem.ingredienttype"/>
+            </div>
+       
+      </div></div>
+      <button class="btn btn-primary" ng-click="add()">Add Recipe Details</button><br>
+	  <div ng-if="i>=1" align="center"><button id="submitCustomer" class="btn btn-primary" type="button"  ng-click="addrecipe()">
+                    Save Recipe
+                </button>
+	</div>
+</div></div>
