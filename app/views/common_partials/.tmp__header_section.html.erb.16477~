@@ -1,8 +1,0 @@
-<div class="navbar navbar-fixed-top" style="top:2px" >
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand " href="#/"> Recipe Manager</a>
-          
-        </div>
-    </div>
-</div>
