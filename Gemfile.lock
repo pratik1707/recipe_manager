@@ -73,7 +73,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  bundler (~> 1.0, >= 1.0.22)
   rails (= 3.0.0)
   rake
   sqlite3-ruby
